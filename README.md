@@ -41,8 +41,12 @@ Facebook  : https://m.facebook.com/shubham.gosain.980
  
  ls
 
+ Select version
+
  bash ubantu1.0.sh 
-     Or 
+
+      Or 
+
  bash ubantu2.0.sh
  
 ### use single command
