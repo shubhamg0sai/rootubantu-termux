@@ -1,5 +1,6 @@
 # rootubantu-termux
-
+ 
+![ ](https://github.com/shubhamggosai/rootubantu-termux/blob/master/IMG_20200916_180231.jpg)
 
 ### Also install sudo for termux
 
