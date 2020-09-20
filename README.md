@@ -1,10 +1,4 @@
 # rootubantu-termux
- 
-![ ](https://github.com/shubhamggosai/rootubantu-termux/blob/master/IMG_20200916_180231.jpg)
-
-### Also install sudo for termux
-
-### https://github.com/shubhamggosai/sudo_for_termux
 
 ### FIND...ME.
 
@@ -27,6 +21,14 @@ Github.   : https://github.com/shubhamggosai
 
 Facebook  : https://m.facebook.com/shubham.gosain.980
 
+Telegram :
+https://t.me/ShuBham_g0sain
+ 
+![ ](https://github.com/shubhamggosai/rootubantu-termux/blob/master/IMG_20200916_180231.jpg)
+
+### Also install sudo for termux
+
+### https://github.com/shubhamggosai/sudo_for_termux
 
 
 ### installation
