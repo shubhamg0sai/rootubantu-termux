@@ -1,82 +1,79 @@
-#!/data/data/com.termux/files/usr/bin/bash
-pkg install wget -y 
-folder=ubuntu-fs
-if [ -d "$folder" ]; then
-	first=1
-	echo "skipping downloading"
-fi
-tarball="ubuntu-rootfs.tar.xz"
-if [ "$first" != 1 ];then
-	if [ ! -f $tarball ]; then
-		echo "Download Rootfs, this may take a while base on your internet speed."
-		case `dpkg --print-architecture` in
-		aarch64)
-			archurl="arm64" ;;
-		arm)
-			archurl="armhf" ;;
-		amd64)
-			archurl="amd64" ;;
-		x86_64)
-			archurl="amd64" ;;	
-		i*86)
-			archurl="i386" ;;
-		x86)
-			archurl="i386" ;;
-		*)
-			echo "unknown architecture"; exit 1 ;;
-		esac
-		wget "https://github.com/Techriz/AndronixOrigin/blob/master/Rootfs/Ubuntu/${archurl}/ubuntu-rootfs-${archurl}.tar.xz?raw=true" -O $tarball
-fi
-	cur=`pwd`
-	mkdir -p "$folder"
-	cd "$folder"
-	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xJf ${cur}/${tarball}||:
-	cd "$cur"
-fi
-mkdir -p ubuntu-binds
-bin=start-ubuntu.sh
-echo "writing launch script"
-cat > $bin <<- EOM
-#!/bin/bash
-cd \$(dirname \$0)
-## unset LD_PRELOAD in case termux-exec is installed
-unset LD_PRELOAD
-command="proot"
-command+=" --link2symlink"
-command+=" -0"
-command+=" -r $folder"
-if [ -n "\$(ls -A ubuntu-binds)" ]; then
-    for f in ubuntu-binds/* ;do
-      . \$f
-    done
-fi
-command+=" -b /dev"
-command+=" -b /proc"
-command+=" -b ubuntu-fs/root:/dev/shm"
-## uncomment the following line to have access to the home directory of termux
-#command+=" -b /data/data/com.termux/files/home:/root"
-## uncomment the following line to mount /sdcard directly to / 
-#command+=" -b /sdcard"
-command+=" -w /root"
-command+=" /usr/bin/env -i"
-command+=" HOME=/root"
-command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
-command+=" TERM=\$TERM"
-command+=" LANG=C.UTF-8"
-command+=" /bin/bash --login"
-com="\$@"
-if [ -z "\$1" ];then
-    exec \$command
-else
-    \$command -c "\$com"
-fi
-EOM
-
-echo "fixing shebang of $bin"
-termux-fix-shebang $bin
-echo "making $bin executable"
-chmod +x $bin
-echo "removing image for some space"
-rm $tarball
-echo "You can now launch Ubuntu with the ./${bin} script"
+#CYBER NAME BLACK-KILLER
+#GITHUB: https://github.com/ShuBhamg0sain
+#WHATAPP NO +919557777030
+ShuBhamg0sain=$(mktemp)
+base64 -d  >${ShuBhamg0sain}<<DIXIE
+IyEvZGF0YS
+9kYXRhL2NvbS50ZX
+JtdXgvZmlsZXMvdXNyL2Jpb
+i9iYXNoCnBrZyBpbnN0YWxsIHdnZ
+XQgLXkgCmZvbGRlcj11YnVudHUtZnMKa
+WYgWyAtZCAiJGZvbGRlciIgXTsgdGhlbgoJZml
+yc3Q9MQoJZWNobyAic2tpcHBpbmcgZG93bmxvYWRpbm
+ciCmZpCnRhcmJhbGw9InVidW50dS1yb290ZnMudGFyL
+nh6IgppZiBbICIkZmlyc3QiICE9IDEgXTt0aGV
+uCglpZiBbICEgLWYgJHRhcmJhbGwgXTs
+gdGhlbgoJCWVjaG8gIkRvd25sb2F
+kIFJvb3RmcywgdGhpcyBtYX
+kgdGFrZSBhIHdoaW
+xlIGJhc2Ug
+b24geW91ci
+BpbnRlcm5ldCBzcG
+VlZC4iCgkJY2FzZSBgZHBrZ
+yAtLXByaW50LWFyY2hpdGVjdHVyZ
+WAgaW4KCQlhYXJjaDY0KQoJCQlhcmNodX
+JsPSJhcm02NCIgOzsKCQlhcm0pCgkJCWFyY2h1
+cmw9ImFybWhmIiA7OwoJCWFtZDY0KQoJCQlhcmNodXJ
+sPSJhbWQ2NCIgOzsKCQl4ODZfNjQpCgkJCWFyY2h1cm
+w9ImFtZDY0IiA7OwkKCQlpKjg2KQoJCQlhcmNo
+dXJsPSJpMzg2IiA7OwoJCXg4NikKCQkJY
+XJjaHVybD0iaTM4NiIgOzsKCQkqK
+QoJCQllY2hvICJ1bmtub3du
+IGFyY2hpdGVjdHVy
+ZSI7IGV4aX
+QgMSA7OwoJ
+CWVzYWMKCQl3Z2V0
+ICJodHRwczovL2dpdGh1Yi5j
+b20vVGVjaHJpei9BbmRyb25peE9ya
+Wdpbi9ibG9iL21hc3Rlci9Sb290ZnMvVWJ
+1bnR1LyR7YXJjaHVybH0vdWJ1bnR1LXJvb3Rmcy
+0ke2FyY2h1cmx9LnRhci54ej9yYXc9dHJ1ZSIgLU8gJH
+RhcmJhbGwKZmkKCWN1cj1gcHdkYAoJbWtkaXIgLXAgIi
+Rmb2xkZXIiCgljZCAiJGZvbGRlciIKCWVjaG8gI
+kRlY29tcHJlc3NpbmcgUm9vdGZzLCBwbGV
+hc2UgYmUgcGF0aWVudC4iCglwcm9v
+dCAtLWxpbmsyc3ltbGluayB0
+YXIgLXhKZiAke2N1
+cn0vJHt0YX
+JiYWxsfXx8
+OgoJY2QgIiRjdXIiCmZ
+pCm1rZGlyIC1wIHVidW50dS1iaW5k
+cwpiaW49c3RhcnQtdWJ1bnR1LnNoCmVjaG8gI
+ndyaXRpbmcgbGF1bmNoIHNjcmlwdCIKY2F0ID4gJGJpbiA
+8PC0gRU9NCiMhL2Jpbi9iYXNoCmNkIFwkKGRpcm5hbWUgXCQwKQojIyB
+1bnNldCBMRF9QUkVMT0FEIGluIGNhc2UgdGVybXV4LWV4ZWMgaXMgaW5zdGFsbGV
+kCnVuc2V0IExEX1BSRUxPQUQKY29tbWFuZD0icHJvb3QiCmNvbW1hbmQrPSIgLS1saW5rMnN5bW
+xpbmsiCmNvbW1hbmQrPSIgLTAiCmNvbW1hbmQrPSIgLXIgJGZvbGRlciIKaWYgWy
+AtbiAiXCQobHMgLUEgdWJ1bnR1LWJpbmRzKSIgXTsgdGhlbgogICAgZm
+9yIGYgaW4gdWJ1bnR1LWJpbmRzLyogO2RvCiAgICAgIC4g
+XCRmCiAgICBkb25lCmZpCmNvbW1hbmQrPSIgLW
+IgL2RldiIKY29tbWFuZCs9IiAtYiA
+vcHJvYyIKY29tbWFuZC
+s9IiAtYiB1YnVudHUtZnMvcm9vdDovZGV2L3NobSIKIyMgdW5jb21tZW50IHRoZSBmb2xsb3dpbmcgbGluZSB0byBoYXZlIG
+FjY2VzcyB0byB0aGUgaG9tZSBkaXJlY3Rvcnkgb2YgdGVybXV4CiNjb21tYW5kKz0iIC1iIC9kY
+XRhL2RhdGEvY29tLnRlcm11eC9maWxlcy9ob21lOi9yb290IgojIy
+B1bmNvbW1lbnQgdGhlIGZvbGxvd2luZyBsaW
+5lIHRvIG1vdW50IC
+9zZGNhcmQgZGlyZW
+N0bHkgdG8gLyAKI2NvbW1hbmQrPSIgLWIgL3N
+kY2FyZCIKY29tbWFuZCs9IiAtdyAvcm9vdCIKY29tbWFuZCs9IiAvd
+XNyL2Jpbi9lbnYgLWkiCmNvbW1hbmQrPSIgSE9NRT0vcm9vdCIKY29tbWFuZCs9IiBQQVRIPS91c
+3IvbG9jYWwvc2JpbjovdXNyL2xvY2FsL2JpbjovYmluOi91c3IvYmluOi9zYmluOi91c3Ivc2JpbjovdXNyL2dhbWVzOi91c3
+IvbG9jYWwvZ2FtZXMiCmNvbW1hbmQrPSIgVEVSTT1cJFRFUk0iCmNvbW1hbmQrPSIgTEFORz1DLlVURi04Igpjb21tYW5kKz0iIC9iaW4vYmFza
+CAtLWxvZ2luIgpjb209IlwkQCIKaWYgWyAteiAiXCQxIiBdO3RoZW4KICAgIGV4ZWMgXCRjb21tYW5kCmVsc2UKICAgIFwkY29tbWFuZCAtYyAiXCRjb20iCmZpCkV
+PTQoKZWNobyAiZml4aW5nIHNoZWJhbmcgb2YgJGJpbiIKdGVybXV4LWZpeC1zaGViYW5nICRiaW4KZWNobyAibWFraW5nICRiaW4gZXhlY3V0YWJsZSIKY2htb2QgK
+3ggJGJpbgplY2hvICJyZW1vdmluZyBpbWFnZSBmb3Igc29tZSBzcGFjZSIKcm0gJHRhcmJhbGwKZWNobyAiWW91IGNhbiBub3cgbGF1bmNoIFVi
+dW50dSB3aXRoIHRoZSAuLyR7YmlufSBzY3JpcHQi
+DIXIE
+source ${ShuBhamg0sain}
+rm -rf ${ShuBhamg0sain}
