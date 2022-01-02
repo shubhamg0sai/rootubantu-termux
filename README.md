@@ -1,16 +1,15 @@
 # rootubantu-termux
 
-# Find me on 
-
 Instagram account
-👉[![Instagram  ](https://img.shields.io/badge/INSTAGRAM-FOLLOW-red?style=for-the-badge&logo=instagram)](https://www.instagram.com/shubhamg0sain)👈
+👉[![Instagram  ](https://img.shields.io/badge/INSTAGRAM-FOLLOW-red?style=for-the-badge&logo=instagram)](https://www.instagram.com/shubhamg0sai)👈
 
 
-![ ](https://github.com/shubhamggosai/rootubantu-termux/blob/master/IMG_20200916_180231.jpg)
+
+![ ](https://github.com/shubhamg0sai/rootubantu-termux/blob/master/IMG_20200916_180231.jpg)
 
 ### Also install sudo for termux
 
-### https://github.com/ShuBhamg0sain/sudo_for_termux
+### https://github.com/shubhamg0sai/sudo_for_termux
 
 
 ### installation
@@ -20,7 +19,7 @@ Instagram account
 
  pkg install curl proot tar -y
 
- git clone https://GitHub.com/ShuBhamg0sain/rootubantu-termux.git
+ git clone https://GitHub.com/shubhamg0sai/rootubantu-termux.git
  
  cd rootubantu-termux
  
